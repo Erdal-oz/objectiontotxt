@@ -47,7 +47,11 @@ def convert_base64objection_to_readable_text_file(filename):
         json_input = json.loads(base64_decoded_input)
         json_to_be_made_readable = json.dumps(json_input, sort_keys=True, indent=0)
         objection_python_dict = json.loads(json_to_be_made_readable)
-        for frame in objection_python_dict["frames"]:
-            readable_file_output.write(frame["username"] + ": " + frame["text"] + "\n\n")
+        try:
+            for frame in objection_python_dict["frames"]:
+                readable_file_output.write(frame["username"] + ": " + frame["text"] + "\n\n")
+        except TypeError:
+            for frame in objection_python_dict:
+                readable_file_output.write(frame["username"] + ": " + frame["text"] + "\n\n")
         readable_file_output.close()
         input_file.close()
