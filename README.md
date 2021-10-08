@@ -5,3 +5,5 @@ I am not experienced with creating projects or programming stuff for public use 
 
 
 **Currently only works for courtroom recordings/ objection entries with nicknames**
+
+pypi : https://pypi.org/project/objectionloltotxt/
