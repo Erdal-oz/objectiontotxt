@@ -32,6 +32,7 @@ optional arguments:
                         convert the .objection files in a directory to readable text file
 
 ```
+
 =======
 **Currently only works for courtroom recordings/ objection entries with nicknames**
 
