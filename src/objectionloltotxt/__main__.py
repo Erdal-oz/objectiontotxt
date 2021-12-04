@@ -10,7 +10,7 @@ def parse_directory_argument(directory_argument):
         if str(folder) is not None and not os.path.isdir(str(folder)):
             print(f"{folder} directory doesn't exist")
         directory_argument.remove(folder) 
-        assert directory_argument != (), "all the directories you provided are invalid"
+        assert directory_argument != (), "all the directories you provided are invalid" # Got to Improve this
         list_of_file = os.listdir(folder)
 
     for file in list_of_file:
