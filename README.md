@@ -6,8 +6,6 @@ I am not experienced with creating projects or programming stuff for public use 
 
 ## Usage
 
-This program is used as a commandline program.
-
 For giving filenames of the .objection files
 ```
 $ objtoxt --filename file1 file2 file3...
