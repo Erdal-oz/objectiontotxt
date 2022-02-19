@@ -1,5 +1,12 @@
 import base64
 import json
+<<<<<<< HEAD
+
+
+def objection_data_to_readable_file(filename, json_pretty_output=False):
+    """
+    Opens the specified .objection file and converts it to prettyprint json. It will create the
+=======
 import os
 import sys
 
@@ -7,11 +14,51 @@ import sys
 def base64_to_json(filename):
     """
     Opens the specified .objection or any base64 encoded file and converts it to prettyprint json. It will create the
+>>>>>>> tmp
     file to the directory of the file that is passed
     """
     assert filename.endswith(
         ".objection"), "the file you provided isn't a .objection file, if it is please make the file extension " \
                        ".objection "
+<<<<<<< HEAD
+
+    if json_pretty_output:
+        file_extension = "_pretty.json"
+        python_json_dict = process_objection_data(filename, file_extension)
+        with open(filename.replace(".objection", file_extension), "w") as output_file:
+            json.dump(python_json_dict, output_file, sort_keys=True, indent=0)
+            output_file.close()
+    else:
+        file_extension = "_readable.txt"
+        python_json_dict = process_objection_data(filename, file_extension)
+        with open(filename.replace(".objection", file_extension), "w") as output_file:
+            try:
+                for frame in python_json_dict["frames"]:
+                    output_file.write(frame["username"] + ": " + frame["text"] + "\n\n")
+            except TypeError:
+                try:
+                    for frame in python_json_dict:
+                        output_file.write(frame["username"] + ": " + frame["text"] + "\n\n")
+                except KeyError:
+                    raise KeyError("The objection file got no username key, most likely not a court recording")
+
+            output_file.close()
+
+
+def process_objection_data(filename, file_extension):
+    """
+    Creates the output file before the readable output is inserted
+    """
+    with open(filename, "r") as input_file, open(filename.replace(".objection", file_extension), "w") as output_file:
+        output_file.close()
+        try:
+            base64_decoded_input = base64.b64decode(input_file.read()).decode()
+            json_input = json.loads(base64_decoded_input)
+        except:
+            json_input = json.loads(json.load(input_file))
+        input_file.close()
+        return json_input
+=======
     with open(filename + "_converted.json", 'w') as output_file, open(filename, 'r') as input_file:
         base64_input = input_file.read()
         base64_decoded_input = base64.b64decode(base64_input).decode()
@@ -58,3 +105,4 @@ def convert_base64objection_to_readable_text_file(filename):
                 
         readable_file_output.close()
         input_file.close()
+>>>>>>> tmp

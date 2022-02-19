@@ -1,0 +1,4 @@
+src/objectionloltotxt.egg-info
+.mypy_cache
+.idea
+src/objectionloltotxt/__pycache__
