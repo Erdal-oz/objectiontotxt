@@ -31,7 +31,12 @@ optional arguments:
 
 ```
 
+Currently the git commit history is a bit confusing, but i'll try to fix it later on
+
 =======
 **Currently only works for courtroom recordings/ objection entries with nicknames**
 
 pypi : https://pypi.org/project/objectionloltotxt/
+
+
+
