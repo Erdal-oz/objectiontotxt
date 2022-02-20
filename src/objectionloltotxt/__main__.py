@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from src.objectionloltotxt import objectiontotxt
+import objectiontotxt
 import argparse
 import os
 import sys
@@ -9,8 +9,8 @@ def parse_directory_argument(directory_argument):
     for folder in directory_argument:
         if str(folder) is not None and not os.path.isdir(str(folder)):
             print(f"{folder} directory doesn't exist")
-        directory_argument.remove(folder) 
-        assert directory_argument != (), "all the directories you provided are invalid" # Got to Improve this
+        directory_argument.remove(folder)
+        assert directory_argument != (), "all the directories you provided are invalid"  # Got to Improve this
         list_of_file = os.listdir(folder)
 
     for file in list_of_file:
@@ -19,6 +19,7 @@ def parse_directory_argument(directory_argument):
             objectiontotxt.objection_data_to_readable_file(full_path)
         else:
             print(f"please rename {full_path} to have .objection extension if the file is an objection file")
+
 
 def parse_filename_argument(filename_argument):
     for file in filename_argument:
@@ -29,6 +30,7 @@ def parse_filename_argument(filename_argument):
             objectiontotxt.objection_data_to_readable_file(file)
         else:
             print(f"please rename \"{file}\" to have .objection extension if the file is an objection file ")
+
 
 def main():
     commandline_interface = argparse.ArgumentParser(prog='objtotxt', description='Convert .objection files to txt')
@@ -41,10 +43,11 @@ def main():
     input_filename = args.filename
     input_directory = args.directory
 
-    if input_directory != None:
+    if input_directory is not None:
         parse_directory_argument(input_directory)
     else:
         parse_filename_argument(input_filename)
+
 
 if __name__ == "__main__":
     main()
