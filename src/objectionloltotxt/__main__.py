@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import objectiontotxt
+import objectionloltotxt.objectiontotxt as objectiontotxt
 import argparse
 import os
 import sys
