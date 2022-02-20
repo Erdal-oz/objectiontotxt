@@ -8,7 +8,7 @@ I am not experienced with creating projects or programming stuff for public use 
 
 For giving filenames of the .objection files
 ```
-$ objtoxt --filename file1 file2 file3...
+$ objtotxt --filename file1 file2 file3...
 ```
 
 For giving the directory where the .objection files are at
