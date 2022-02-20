@@ -44,6 +44,6 @@ def process_objection_data(filename, file_extension):
             base64_decoded_input = base64.b64decode(input_file.read()).decode()
             json_input = json.loads(base64_decoded_input)
         except:
-            json_input = json.loads(json.load(input_file))
+            json_input = json.loads(input_file)
         input_file.close()
         return json_input
