@@ -15,7 +15,7 @@ def objection_data_to_readable_file(filename, json_pretty_output=False):
         file_extension = "_pretty.json"
         python_json_dict = process_objection_data(filename, file_extension)
         with open(filename.replace(".objection", file_extension), "w") as output_file:
-            json.dump(python_json_dict, output_file, sort_keys=True, indent=0)
+            json.dump(python_json_dict, output_file, sort_keys=True, indent=1)
             output_file.close()
     else:
         file_extension = "_readable.txt"
